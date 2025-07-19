@@ -1,4 +1,4 @@
-package com.demetriusdemiurge.t1_homework_spring_boot_starter.aspect;
+package com.demetriusdemiurge.t1_homework_spring_boot_starter.aspects;
 
 
 import lombok.extern.slf4j.Slf4j;
@@ -29,7 +29,7 @@ public class AuditAspect {
         this.auditMode = auditMode;
     }
 
-    @Around("@annotation(com.demetriusdemiurge.t1_homework_spring_boot_starter.annotation.WeylandWatchingYou)")
+    @Around("@annotation(com.demetriusdemiurge.t1_homework_spring_boot_starter.annotations.WeylandWatchingYou)")
     public Object auditMethod(ProceedingJoinPoint joinPoint) throws Throwable {
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
         String methodName = signature.getName();

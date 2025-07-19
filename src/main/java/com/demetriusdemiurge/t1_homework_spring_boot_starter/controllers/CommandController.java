@@ -1,7 +1,7 @@
-package com.demetriusdemiurge.t1_homework_spring_boot_starter.controller;
+package com.demetriusdemiurge.t1_homework_spring_boot_starter.controllers;
 
 import com.demetriusdemiurge.t1_homework_spring_boot_starter.data.Command;
-import com.demetriusdemiurge.t1_homework_spring_boot_starter.service.CommandService;
+import com.demetriusdemiurge.t1_homework_spring_boot_starter.services.CommandService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
