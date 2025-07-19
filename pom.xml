@@ -11,6 +11,7 @@
     <groupId>com.demetriusdemiurge</groupId>
     <artifactId>T1_homework_spring_boot_starter</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
     <name>T1_homework_spring_boot_starter</name>
     <description>T1_homework_spring_boot_starter</description>
     <url/>
@@ -20,6 +21,10 @@
     <developers>
         <developer/>
     </developers>
+    <modules>
+        <module>bishop-starter</module>
+        <module>bishop-prototype</module>
+    </modules>
     <scm>
         <connection/>
         <developerConnection/>
