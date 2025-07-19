@@ -11,15 +11,16 @@ import java.util.Map;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicInteger;
 
+@Getter
 @Service
 @Slf4j
 public class CommandServiceImpl implements CommandService {
 
     private final BlockingQueue<Command> commonCommandQueue = new ArrayBlockingQueue<>(100);
 
-    @Getter
-    private final Map<String, Integer> authorCommandCount = new ConcurrentHashMap<>();
+    private final Map<String, AtomicInteger> authorCommandCount = new ConcurrentHashMap<>();
 
     @Override
     public void defineCommand(Command command) {
@@ -37,7 +38,9 @@ public class CommandServiceImpl implements CommandService {
     public void executeCommand(Command command) {
 
         log.info("Выполнение команды: {}\nАвтор: {}", command.getDescription(), command.getAuthor());
-        authorCommandCount.merge(command.getAuthor(), 1, Integer::sum);
+        authorCommandCount
+                .computeIfAbsent(command.getAuthor(), a -> new AtomicInteger(0))
+                .incrementAndGet();
     }
 
     @Override
@@ -52,9 +55,4 @@ public class CommandServiceImpl implements CommandService {
 
         }
     }
-
-    public int getQueueSize() {
-        return commonCommandQueue.size();
-    }
-
 }
