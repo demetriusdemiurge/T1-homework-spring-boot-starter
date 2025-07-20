@@ -30,9 +30,9 @@ bishop.audit.mode может принимать значения:
 - `kafka` — отправка сообщений в кафку
 - `console` — вывод сообщений в консоль
 
-bishop.audit.topic определяет топик кафки
+`bishop.audit.topic=audit-log` определяет топик кафки
 
-spring.docker.compose.enabled=false — отключение автозапуска спрингом докера, я поднимал его вручную через
+`spring.docker.compose.enabled=false` — отключение автозапуска спрингом докера, я поднимал его вручную через
 ```
 docker-compose up -d
 ```
