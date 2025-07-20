@@ -17,12 +17,12 @@ public class BishopPrototypeController {
     @WeylandWatchingYou
     public String execute(@RequestBody Command command) {
         commandService.defineCommand(command);
-        return "Executed (or queued)";
+        return "Выполнено (или поставлено в очередь)";
     }
 
     @GetMapping("/status")
     @WeylandWatchingYou
     public String status() {
-        return "Queue: " + commandService.getCommonCommandQueue();
+        return "Очередь: " + commandService.getCommonCommandQueue();
     }
 }

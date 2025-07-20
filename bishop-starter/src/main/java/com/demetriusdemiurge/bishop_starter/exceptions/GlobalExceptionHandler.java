@@ -19,7 +19,7 @@ public class GlobalExceptionHandler {
         ex.getBindingResult().getFieldErrors().forEach(e ->
                 errors.put(e.getField(), e.getDefaultMessage()));
         return ResponseEntity.badRequest().body(Map.of(
-                "error", "Validation failed",
+                "error", "Ошибка валидации",
                 "details", errors
         ));
     }
@@ -27,7 +27,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(RejectedExecutionException.class)
     public ResponseEntity<?> handleQueueOverflow(RejectedExecutionException ex) {
         return ResponseEntity.status(HttpStatus.TOO_MANY_REQUESTS).body(Map.of(
-                "error", "Queue overflow",
+                "error", "Очередь переполнена",
                 "message", ex.getMessage()
         ));
     }
@@ -35,7 +35,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(Exception.class)
     public ResponseEntity<?> handleGeneric(Exception ex) {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(Map.of(
-                "error", "Unexpected error",
+                "error", "Неизвестная ошибка",
                 "message", ex.getMessage()
         ));
     }

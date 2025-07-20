@@ -18,11 +18,11 @@ public class CommandMetrics {
 
     @PostConstruct
     public void initMetrics() {
-        registry.gauge("bishop.queue.size", commandService.getCommonCommandQueue().size());
+
+        registry.gauge("bishop.queue.size", commandService, cs -> cs.getCommonCommandQueue().size());
 
         commandService.getAuthorCommandCount().forEach((author, counter) -> {
             registry.gauge("bishop.commands.by.author", Tags.of("author", author), counter, AtomicInteger::get);
         });
     }
 }
-

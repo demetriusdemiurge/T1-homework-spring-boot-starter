@@ -37,7 +37,7 @@ public class AuditAspect {
 
         Object result = joinPoint.proceed();
 
-        String message = String.format("\nAUDIT: method=%s, args=%s, result=%s",
+        String message = String.format("\nАУДИТ: method=%s, args=%s, result=%s",
                 methodName, Arrays.toString(args), result);
 
         if ("kafka".equalsIgnoreCase(auditMode)) {
