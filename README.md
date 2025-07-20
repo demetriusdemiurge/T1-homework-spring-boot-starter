@@ -101,3 +101,7 @@ http://localhost:8080/actuator/metrics/bishop.commands.by.author?tag=author:Ripl
 ```
 docker exec -it kafka kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic audit-log --from-beginning
 ```
+
+### 6. Тесты
+
+Для тестрирования необходимо запустить CommandServiceImplTest
