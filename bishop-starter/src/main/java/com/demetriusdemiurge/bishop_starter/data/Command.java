@@ -1,7 +1,10 @@
 package com.demetriusdemiurge.bishop_starter.data;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.*;
 import lombok.Data;
+
+import java.time.Instant;
 
 @Data
 public class Command {
@@ -17,9 +20,9 @@ public class Command {
     @Size(max = 100)
     private String author;
 
-    @NotBlank
-    @Pattern(regexp = "\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}(:\\d{2})?Z?")
-    private String time;
+    @NotNull
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ssX")
+    private Instant time;
 
     public enum Priority {
         COMMON,

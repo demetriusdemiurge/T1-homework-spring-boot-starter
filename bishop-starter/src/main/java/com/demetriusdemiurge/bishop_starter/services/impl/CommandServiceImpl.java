@@ -1,6 +1,7 @@
 package com.demetriusdemiurge.bishop_starter.services.impl;
 
 import com.demetriusdemiurge.bishop_starter.data.Command;
+import com.demetriusdemiurge.bishop_starter.exceptions.QueueOverflowException;
 import com.demetriusdemiurge.bishop_starter.services.CommandService;
 import io.micrometer.core.instrument.MeterRegistry;
 import io.micrometer.core.instrument.Tags;
@@ -26,7 +27,7 @@ public class CommandServiceImpl implements CommandService {
     @Autowired
     private MeterRegistry registry;
 
-    private final BlockingQueue<Command> commonCommandQueue = new ArrayBlockingQueue<>(100);
+    private final BlockingQueue<Command> commonCommandQueue = new ArrayBlockingQueue<>(4);
 
     private final Map<String, AtomicInteger> authorCommandCount = new ConcurrentHashMap<>();
 
@@ -38,7 +39,10 @@ public class CommandServiceImpl implements CommandService {
         }
 
         else if (command.getPriority() == Command.Priority.COMMON) {
-            commonCommandQueue.add(command);
+            boolean added = commonCommandQueue.offer(command);
+            if (!added) {
+                throw new QueueOverflowException("Очередь COMMON-команд переполнена");
+            }
         }
     }
 
