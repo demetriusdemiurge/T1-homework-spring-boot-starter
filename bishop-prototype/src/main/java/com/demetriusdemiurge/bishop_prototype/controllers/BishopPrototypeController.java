@@ -1,9 +1,8 @@
-package com.demetriusdemiurge;
+package com.demetriusdemiurge.bishop_prototype.controllers;
 
-import com.demetriusdemiurge.t1_homework_spring_boot_starter.annotations.WeylandWatchingYou;
-import com.demetriusdemiurge.t1_homework_spring_boot_starter.data.Command;
-import com.demetriusdemiurge.t1_homework_spring_boot_starter.services.CommandService;
-import com.demetriusdemiurge.t1_homework_spring_boot_starter.services.impl.CommandServiceImpl;
+import com.demetriusdemiurge.bishop_starter.annotations.WeylandWatchingYou;
+import com.demetriusdemiurge.bishop_starter.data.Command;
+import com.demetriusdemiurge.bishop_starter.services.impl.CommandServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

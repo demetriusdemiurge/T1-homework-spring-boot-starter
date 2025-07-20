@@ -1,4 +1,4 @@
-package com.demetriusdemiurge.t1_homework_spring_boot_starter;
+package com.demetriusdemiurge.bishop_starter;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,6 +1,6 @@
-package com.demetriusdemiurge.t1_homework_spring_boot_starter.services;
+package com.demetriusdemiurge.bishop_starter.services;
 
-import com.demetriusdemiurge.t1_homework_spring_boot_starter.data.Command;
+import com.demetriusdemiurge.bishop_starter.data.Command;
 
 public interface CommandService {
 

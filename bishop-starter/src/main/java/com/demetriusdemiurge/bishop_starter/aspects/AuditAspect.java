@@ -1,4 +1,4 @@
-package com.demetriusdemiurge.t1_homework_spring_boot_starter.aspects;
+package com.demetriusdemiurge.bishop_starter.aspects;
 
 
 import lombok.extern.slf4j.Slf4j;
@@ -29,7 +29,7 @@ public class AuditAspect {
         this.auditMode = auditMode;
     }
 
-    @Around("@annotation(com.demetriusdemiurge.t1_homework_spring_boot_starter.annotations.WeylandWatchingYou)")
+    @Around("@annotation(com.demetriusdemiurge.bishop_starter.annotations.WeylandWatchingYou)")
     public Object auditMethod(ProceedingJoinPoint joinPoint) throws Throwable {
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
         String methodName = signature.getName();
@@ -37,7 +37,7 @@ public class AuditAspect {
 
         Object result = joinPoint.proceed();
 
-        String message = String.format("AUDIT: method=%s, args=%s, result=%s",
+        String message = String.format("\nAUDIT: method=%s, args=%s, result=%s",
                 methodName, Arrays.toString(args), result);
 
         if ("kafka".equalsIgnoreCase(auditMode)) {

@@ -1,7 +1,7 @@
-package com.demetriusdemiurge.t1_homework_spring_boot_starter.services.impl;
+package com.demetriusdemiurge.bishop_starter.services.impl;
 
-import com.demetriusdemiurge.t1_homework_spring_boot_starter.data.Command;
-import com.demetriusdemiurge.t1_homework_spring_boot_starter.services.CommandService;
+import com.demetriusdemiurge.bishop_starter.data.Command;
+import com.demetriusdemiurge.bishop_starter.services.CommandService;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -37,7 +37,7 @@ public class CommandServiceImpl implements CommandService {
     @Override
     public void executeCommand(Command command) {
 
-        log.info("Выполнение команды: {}\nАвтор: {}", command.getDescription(), command.getAuthor());
+        log.info("\nВыполнение команды: {}\nАвтор: {}", command.getDescription(), command.getAuthor());
         authorCommandCount
                 .computeIfAbsent(command.getAuthor(), a -> new AtomicInteger(0))
                 .incrementAndGet();

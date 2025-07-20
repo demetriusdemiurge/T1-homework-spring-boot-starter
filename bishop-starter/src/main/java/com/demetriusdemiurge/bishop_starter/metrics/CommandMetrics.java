@@ -1,6 +1,6 @@
-package com.demetriusdemiurge.t1_homework_spring_boot_starter.metrics;
+package com.demetriusdemiurge.bishop_starter.metrics;
 
-import com.demetriusdemiurge.t1_homework_spring_boot_starter.services.impl.CommandServiceImpl;
+import com.demetriusdemiurge.bishop_starter.services.impl.CommandServiceImpl;
 import io.micrometer.core.instrument.MeterRegistry;
 import io.micrometer.core.instrument.Tags;
 import jakarta.annotation.PostConstruct;

@@ -1,4 +1,4 @@
-package com.demetriusdemiurge.t1_homework_spring_boot_starter.exceptions;
+package com.demetriusdemiurge.bishop_starter.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
