@@ -86,9 +86,18 @@ networks:
 - GET /prototype/status
 Показать количество команд в очереди
 
+Чтобы посмотреть размер очереди необходимо отправить запрос
+```
+http://localhost:8080/actuator/metrics/bishop.queue.size
+```
+
+Чтобы посмотреть количество команд, по каждому автору необходимо отправить запрос с его имененм в конце
+```
+http://localhost:8080/actuator/metrics/bishop.commands.by.author?tag=author:Ripley
+```
+
 ### 5. Проверка Kafka
 
 ```
 docker exec -it kafka kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic audit-log --from-beginning
 ```
-
